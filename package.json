@@ -1,0 +1,36 @@
+{
+  "name": "Twitter-help-desk",
+  "version": "0.0.0",
+  "description": "Twitter helping desk.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
+  },
+  "engines": {
+    "node": "12.14.1"
+  },
+  "keywords": [
+    "example",
+    "express",
+    "passport"
+  ],
+  "author": "Sumeet Rana",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "connect-ensure-login": "^0.1.1",
+    "dotenv": "^8.0.0",
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
+    "express-bearer-token": "^2.4.0",
+    "express-session": "^1.16.1",
+    "get-twitter-bearer-token": "^1.0.0",
+    "http-proxy-middleware": "^1.0.3",
+    "morgan": "^1.9.1",
+    "nodemon": "^2.0.3",
+    "passport": "^0.4.0",
+    "passport-twitter": "^1.0.4",
+    "react-router-dom": "^5.1.2",
+    "twit": "^2.2.11"
+  }
+}

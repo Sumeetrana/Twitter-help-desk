@@ -1,0 +1,88 @@
+<%- include('partials/header.ejs') %>
+<div class="app">
+  <div class="header">
+   <div class="logo">
+    Twitter-Help-Desk
+   </div>
+   
+   <div class="user-settings">
+    <div class="dark-light">
+     <a href="/logout">Logout</a>
+    </div>
+    
+    <img class="user-profile" src="<%= user._json.profile_image_url %>" alt="" class="account-profile" alt="">
+   </div>
+  </div>
+<div class="wrapper">
+  
+  <div class="conversation-area">
+    <div class="conversation-area">  
+      <% mentions.map(mention => {  %>
+        <div class="msg-detail">
+          
+          <a href='/tweet/<%= mention.id_str %>' class="msg-username"><h3><%= mention.text %></h3></a>
+          <div class="msg-content">
+           <span class="msg-message">Created at: <strong> <%= new Date(mention.created_at).toDateString() %></strong></span>
+           
+          </div>
+         </div>
+         <% }) %>
+      </div>
+    </div>
+  <div class="chat-area">
+    <div class="chat-area-header">
+     <div class="chat-area-title"><%= tweeted_user.tweet %></div>
+     
+    </div>
+    <div class="chat-area-main">
+     <div class="chat-msg">
+        <% console.log(replies);
+         %>
+        <% replies.map(reply => { %>
+          
+          <div class="chat-msg-text">
+            <div><strong><%= reply.user.screen_name %></strong></div>
+            <%= reply.text %>
+          </div>
+        <% }) %>
+      
+      
+     </div>
+     
+    </div>
+    <div class="chat-area-footer">
+      <% if(tweeted_user.name) { %>
+      <form method="POST" action="/tweet/<%= tweeted_user.id_str %>">
+        <input type="text" placeholder="Type something here..." name="reply" />
+        
+      </form>
+    <% } %>
+    </div>
+   
+  </div>
+   <div class="detail-area">
+    <div class="detail-area-header">
+      <div class="msg-profile group">
+        <% if (tweeted_user.image) { %>
+          <img src="<%= tweeted_user.image %>" style="width: 100%; height: 100%; border-radius: 50%;">
+        <% } %>
+      </div>
+      <div class="detail-title"><%= tweeted_user.name %></div>
+      <div class="detail-subtitle"><%= tweeted_user.description %></div>
+      <div class="detail-buttons">
+        <% if(tweeted_user.followers== 0 || tweeted_user.followers) { %>
+        <div class="detail-button">
+         Followers: <%= tweeted_user.followers %> 
+        </div>
+        <% } %>
+        <% if(tweeted_user.followers== 0 || tweeted_user.following) { %>
+        <div class="detail-button">
+          Following: <%= tweeted_user.following %> 
+         </div>
+        <% } %>
+    </div>
+   </div>
+</div>
+</div>
+
+<%- include('partials/footer.ejs') %>
