@@ -7,10 +7,6 @@ var axios = require('axios')
 var Twit = require('twit')
 
 
-var twitter_consumer_key = 'w9jGr2H9ZFrgVtbL89UUjXrh2'
-var twitter_consumer_secret = '0r3ieEhxP8U7l6P7BDvhRbnWnAf5a7gXWU41amYnll6aDukk8R'
-
-
 
 var T = new Twit({
   consumer_key: 'w9jGr2H9ZFrgVtbL89UUjXrh2',
